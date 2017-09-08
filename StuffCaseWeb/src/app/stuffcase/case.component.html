@@ -1,0 +1,29 @@
+
+  <div class="row">
+    <h1>My Stuffs</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+        <table class="table table-condensed">     
+          <thead>
+                  <tr>
+                    <td class="badge">ID</td>
+                    <td>Nom</td>
+                    <td>Categorie</td>
+                    <td>Date de sortie</td>
+                    <td>Auteur</td>
+                  </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stuff of stuffs" [class.selected]="stuff === selectedStuff"
+          (click)="onSelect(stuff)">
+              <td class="badge">{{stuff.id}}</td>
+              <td>{{stuff.name}}</td>
+              <td>{{stuff.category}}</td>
+              <td>{{stuff.date}}</td>
+              <td>{{stuff.author}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
