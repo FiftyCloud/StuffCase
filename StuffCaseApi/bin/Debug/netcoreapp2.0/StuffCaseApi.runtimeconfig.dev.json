@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\CELAD Bordeaux\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\CELAD Bordeaux\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ]
+  }
+}

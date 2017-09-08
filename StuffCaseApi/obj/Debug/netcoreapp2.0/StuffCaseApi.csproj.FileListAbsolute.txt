@@ -1,0 +1,10 @@
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\bin\Debug\netcoreapp2.0\StuffCaseApi.deps.json
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\bin\Debug\netcoreapp2.0\StuffCaseApi.runtimeconfig.json
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\bin\Debug\netcoreapp2.0\StuffCaseApi.runtimeconfig.dev.json
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\bin\Debug\netcoreapp2.0\StuffCaseApi.dll
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\bin\Debug\netcoreapp2.0\StuffCaseApi.pdb
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\obj\Debug\netcoreapp2.0\StuffCaseApi.csproj.CoreCompileInputs.cache
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\obj\Debug\netcoreapp2.0\StuffCaseApi.AssemblyInfoInputs.cache
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\obj\Debug\netcoreapp2.0\StuffCaseApi.AssemblyInfo.cs
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\obj\Debug\netcoreapp2.0\StuffCaseApi.dll
+C:\Users\CELAD Bordeaux\StuffCase\StuffCaseApi\obj\Debug\netcoreapp2.0\StuffCaseApi.pdb
