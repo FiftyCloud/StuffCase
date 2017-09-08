@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using StuffCaseApi.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 
 namespace StuffCaseApi.Controllers
 {
@@ -28,13 +29,15 @@ namespace StuffCaseApi.Controllers
         }
 
         [HttpGet]
+        [EnableCors("AllowSpecificOrigin")]
         public IEnumerable<StuffItem> GetAll()
         {
             return _context.StuffItems.ToList();
         }
 
         [HttpGet("{id}", Name = "GetStuff")]
-        public IActionResult GetById(long id)
+        [EnableCors("AllowSpecificOrigin")]
+        public IActionResult GetById(int id)
         {
             var item = _context.StuffItems.FirstOrDefault(t => t.Id == id);
             if (item == null)

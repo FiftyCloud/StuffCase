@@ -1,21 +1,21 @@
 
-      <div class="form" *ngIf="selectedStuff">
-          <h2>{{selectedStuff.name}} details!</h2>
+      <div class="form" *ngIf="stuff">
+          <h2>{{stuff.name}} details!</h2>
           <div class="form-group">
               <label>Name: </label>
-              <input [(ngModel)]="selectedStuff.name" placeholder="Name"/>
+              <input [(ngModel)]="stuff.name" placeholder="Name"/>
           </div>
           <div class="form-group">
               <label>Category: </label>
-              <input [(ngModel)]="selectedStuff.category" placeholder="Category"/>
+              <input [(ngModel)]="stuff.category" placeholder="Category"/>
           </div>
           <div class="form-group">
               <label>Date: </label>
-              <input [(ngModel)]="selectedStuff.date" placeholder="Date"/>
+              <input [(ngModel)]="stuff.date" placeholder="Date"/>
           </div>
           <div class="form-group">
               <label>Auteur: </label>
-              <input [(ngModel)]="selectedStuff.author" placeholder="Auteur"/>
+              <input [(ngModel)]="stuff.author" placeholder="Auteur"/>
           </div>
           <button (click)="goBack()">Back</button>
           <button (click)="save()">Save</button>

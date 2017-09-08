@@ -23,7 +23,7 @@ var StuffDetailsComponent = (function () {
         var _this = this;
         this.route.paramMap
             .switchMap(function (params) { return _this.stuffService.getStuff(+params.get('id')); })
-            .subscribe(function (stuff) { return _this.stuff = stuff; });
+            .subscribe(function (data) { return _this.stuff = data; });
     };
     StuffDetailsComponent.prototype.goBack = function () {
         this.location.back();

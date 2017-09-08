@@ -11,18 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-var mock_stuff_1 = require("./mock-stuff");
 var StuffService = (function () {
     function StuffService(http) {
         this.http = http;
-        this.heroesUrl = 'api/stuff'; // URL to web api
+        this.stuffsUrl = 'http://localhost:5000/api/stuff'; // URL to web api
     }
     StuffService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
     StuffService.prototype.getStuffs = function () {
-        return mock_stuff_1.STUFFS;
+        return this.http.get(this.stuffsUrl)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    StuffService.prototype.getStuff = function (id) {
+        var url = this.stuffsUrl + "/" + id;
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
     };
     return StuffService;
 }());

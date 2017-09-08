@@ -12,6 +12,7 @@ import { Stuff } from "./stuff";
     styleUrls: ['']
 })
 export class StuffDetailsComponent implements OnInit{
+    @Input() stuff : Stuff;
 
     constructor(
         private stuffService: StuffService,
@@ -22,12 +23,12 @@ export class StuffDetailsComponent implements OnInit{
     ngOnInit() : void {
         this.route.paramMap
 		.switchMap((params: ParamMap) => this.stuffService.getStuff(+params.get('id')))
-		.subscribe(stuff => this.stuff = stuff);
+        .subscribe(data => this.stuff = data);
     }
 
     goBack(): void {
 	  this.location.back();
 	}
 
-    @Input() stuff : Stuff;
+   
 }

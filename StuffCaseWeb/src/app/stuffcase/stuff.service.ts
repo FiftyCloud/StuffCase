@@ -3,14 +3,13 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { STUFFS } from './mock-stuff'
 import { Stuff } from "./stuff";
 
 
 
 @Injectable()
 export class StuffService {
-    private heroesUrl = 'api/stuff';  // URL to web api
+    private stuffsUrl = 'http://localhost:5000/api/stuff';  // URL to web api
 
     constructor(
         private http: Http
@@ -21,16 +20,18 @@ export class StuffService {
       return Promise.reject(error.message || error);
     }
 
-    getStuffs() : Stuff[] {
-       return STUFFS;
+    getStuffs() : Promise<Stuff[]> {      
+        return this.http.get(this.stuffsUrl)
+        .toPromise()
+        .then(response => response.json() as Stuff[])
+        .catch(this.handleError);
     }
 
-   /* getStuff(id: number) : Promise<Stuff> {
-        // todo
-        const url = `${this.heroesUrl}/${id}`;
+    getStuff(id: number) : Promise<Stuff> {
+        const url = `${this.stuffsUrl}/${id}`;
         return this.http.get(url)
             .toPromise()
-            .then(response => response.json().data as Stuff)
+            .then(response => response.json() as Stuff)
             .catch(this.handleError);
-    }*/
+    }
 }
