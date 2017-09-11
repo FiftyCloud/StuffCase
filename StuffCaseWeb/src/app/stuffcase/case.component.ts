@@ -29,6 +29,19 @@ export class CaseComponent implements OnInit{
 
   onSelect(stuff: Stuff): void {
     this.selectedStuff = stuff;
-    this.router.navigate(['/stuffdetails', this.selectedStuff.id]);
+    this.router.navigate(['/stuffform', this.selectedStuff.id]);
+  }
+
+  
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.selectedStuff = new Stuff;
+    this.selectedStuff.name= name;
+    this.stuffService.create(this.selectedStuff)
+      .then(stuff => {
+        this.stuffs.push(stuff);
+        this.router.navigate(['/stuffform', stuff.id]);
+      });
   }
 }

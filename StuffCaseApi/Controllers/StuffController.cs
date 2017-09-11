@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StuffCaseApi.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Cors;
+using StuffCaseApi.Data;
 
 namespace StuffCaseApi.Controllers
 {
@@ -32,19 +33,51 @@ namespace StuffCaseApi.Controllers
         [EnableCors("AllowSpecificOrigin")]
         public IEnumerable<StuffItem> GetAll()
         {
-            return _context.StuffItems.ToList();
+            return StuffData.GetStuff();
         }
 
         [HttpGet("{id}", Name = "GetStuff")]
         [EnableCors("AllowSpecificOrigin")]
         public IActionResult GetById(int id)
         {
-            var item = _context.StuffItems.FirstOrDefault(t => t.Id == id);
+            var item = StuffData.GetStuff(id);
             if (item == null)
             {
                 return NotFound();
             }
             return new ObjectResult(item);
-        }       
+        } 
+
+        [HttpPut("{id}")]
+        [EnableCors("AllowSpecificOrigin")]
+        public IActionResult Update(int id, [FromBody] StuffItem item)
+        {
+            if (item == null || item.Id != id)
+            {
+                return BadRequest();
+            }
+
+           StuffData.UpdateStuff(id, item);
+            return new NoContentResult();
+        } 
+
+        [HttpPost]
+        [EnableCors("AllowSpecificOrigin")]
+        public IActionResult Create([FromBody] StuffItem item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
+            StuffData.CreateStuff(item);
+
+            item = StuffData.GetStuff(StuffData.GetMaxId());
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(item);;
+        }     
     }
 }

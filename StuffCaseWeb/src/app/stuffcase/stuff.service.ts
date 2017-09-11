@@ -20,6 +20,8 @@ export class StuffService {
       return Promise.reject(error.message || error);
     }
 
+    private headers = new Headers({'Content-Type': 'application/json'});
+
     getStuffs() : Promise<Stuff[]> {      
         return this.http.get(this.stuffsUrl)
         .toPromise()
@@ -34,4 +36,24 @@ export class StuffService {
             .then(response => response.json() as Stuff)
             .catch(this.handleError);
     }
+
+   
+    updateStuff(stuff: Stuff): Promise<Stuff> {
+        const url = `${this.stuffsUrl}/${stuff.id}`;
+        return this.http
+          .put(url, JSON.stringify(stuff), {headers: this.headers})
+          .toPromise()
+          .then(() => stuff)
+          .catch(this.handleError);
+      }
+
+      create(stuff: Stuff): Promise<Stuff> {
+
+        return this.http
+          .post(this.stuffsUrl, JSON.stringify(stuff), {headers: this.headers})
+          .toPromise()
+          .then(
+              res => res.json() as Stuff)
+          .catch(this.handleError);
+      }
 }

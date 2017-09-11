@@ -13,7 +13,7 @@ import { HeroService } from './hero.service';
 import { AppRoutingModule } from './app-routing.module';
 import { CaseComponent } from "./stuffcase/case.component";
 import { StuffService } from "./stuffcase/stuff.service";
-import { StuffDetailsComponent } from "./stuffcase/stuff-details.component";
+import { StuffFormComponent } from "./stuffcase/stuff-form.component";
 
 
 
@@ -31,7 +31,7 @@ import { StuffDetailsComponent } from "./stuffcase/stuff-details.component";
 		DashboardComponent,
     HeroSearchComponent,
 		CaseComponent,
-		StuffDetailsComponent
+		StuffFormComponent
 	],
   providers: [ HeroService, StuffService ],
   bootstrap: [ AppComponent ]

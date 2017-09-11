@@ -3,6 +3,12 @@
     <h1>My Stuffs</h1>
   </div>
   <div class="row">
+    <label>Stuff name:</label> <input #stuffName />
+    <button (click)="add(stuffName.value); stuffName.value=''">
+      Add
+    </button>
+  </div>
+  <div class="row">
     <div class="col-xs-12">
         <table class="table table-condensed">     
           <thead>

@@ -11,14 +11,14 @@ var dashboard_component_1 = require("./dashboard.component");
 var heroes_component_1 = require("./heroes.component");
 var hero_detail_component_1 = require("./hero-detail.component");
 var case_component_1 = require("./stuffcase/case.component");
-var stuff_details_component_1 = require("./stuffcase/stuff-details.component");
+var stuff_form_component_1 = require("./stuffcase/stuff-form.component");
 var routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: '/case', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
     { path: 'heroes', component: heroes_component_1.HeroesComponent },
     { path: 'case', component: case_component_1.CaseComponent },
-    { path: 'stuffdetails/:id', component: stuff_details_component_1.StuffDetailsComponent }
+    { path: 'stuffform/:id', component: stuff_form_component_1.StuffFormComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -5,15 +5,15 @@ import { DashboardComponent }   from './dashboard.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { CaseComponent } from "./stuffcase/case.component";
-import { StuffDetailsComponent } from "./stuffcase/stuff-details.component";
+import { StuffFormComponent } from "./stuffcase/stuff-form.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/case', pathMatch: 'full' },
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes',     component: HeroesComponent },
   { path: 'case', component: CaseComponent },
-  { path : 'stuffdetails/:id', component: StuffDetailsComponent}
+  { path : 'stuffform/:id', component: StuffFormComponent}
 ];
 
 @NgModule({

@@ -15,6 +15,7 @@ var StuffService = (function () {
     function StuffService(http) {
         this.http = http;
         this.stuffsUrl = 'http://localhost:5000/api/stuff'; // URL to web api
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     StuffService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
@@ -31,6 +32,21 @@ var StuffService = (function () {
         return this.http.get(url)
             .toPromise()
             .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    StuffService.prototype.updateStuff = function (stuff) {
+        var url = this.stuffsUrl + "/" + stuff.id;
+        return this.http
+            .put(url, JSON.stringify(stuff), { headers: this.headers })
+            .toPromise()
+            .then(function () { return stuff; })
+            .catch(this.handleError);
+    };
+    StuffService.prototype.create = function (stuff) {
+        return this.http
+            .post(this.stuffsUrl, JSON.stringify(stuff), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     return StuffService;

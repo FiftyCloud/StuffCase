@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var stuff_service_1 = require("./stuff.service");
+var stuff_1 = require("./stuff");
 var CaseComponent = (function () {
     function CaseComponent(stuffService, router) {
         this.stuffService = stuffService;
@@ -25,7 +26,21 @@ var CaseComponent = (function () {
     };
     CaseComponent.prototype.onSelect = function (stuff) {
         this.selectedStuff = stuff;
-        this.router.navigate(['/stuffdetails', this.selectedStuff.id]);
+        this.router.navigate(['/stuffform', this.selectedStuff.id]);
+    };
+    CaseComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.selectedStuff = new stuff_1.Stuff;
+        this.selectedStuff.name = name;
+        this.stuffService.create(this.selectedStuff)
+            .then(function (stuff) {
+            _this.stuffs.push(stuff);
+            _this.router.navigate(['/stuffform', stuff.id]);
+        });
     };
     return CaseComponent;
 }());

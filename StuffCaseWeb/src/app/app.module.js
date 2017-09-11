@@ -18,7 +18,7 @@ var hero_service_1 = require("./hero.service");
 var app_routing_module_1 = require("./app-routing.module");
 var case_component_1 = require("./stuffcase/case.component");
 var stuff_service_1 = require("./stuffcase/stuff.service");
-var stuff_details_component_1 = require("./stuffcase/stuff-details.component");
+var stuff_form_component_1 = require("./stuffcase/stuff-form.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -39,7 +39,7 @@ AppModule = __decorate([
             dashboard_component_1.DashboardComponent,
             hero_search_component_1.HeroSearchComponent,
             case_component_1.CaseComponent,
-            stuff_details_component_1.StuffDetailsComponent
+            stuff_form_component_1.StuffFormComponent
         ],
         providers: [hero_service_1.HeroService, stuff_service_1.StuffService],
         bootstrap: [app_component_1.AppComponent]
